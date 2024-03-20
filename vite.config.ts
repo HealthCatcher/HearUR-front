@@ -3,13 +3,15 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    rollupOptions: {
-      input: {
-        main: "./index.html",
-        sw: "./sw.ts",
-      },
-    },
-  },
+	plugins: [react()],
+	resolve: {
+		alias: [{ find: '@', replacement: '/src' }],
+	},
+	build: {
+		rollupOptions: {
+			input: {
+				main: './index.html',
+			},
+		},
+	},
 })
