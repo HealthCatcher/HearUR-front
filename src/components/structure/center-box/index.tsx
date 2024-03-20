@@ -5,18 +5,18 @@ import styled from 'styled-components'
 type CenterBoxProps = {
 	width: string
 	height: string
-	bgColor: string
+	bgcolor: string
 	children: ReactNode
 }
 
 export const CenterBox = ({
 	width = '100%',
-	height = '100%',
-	bgColor = 'transparent',
+	height = 'fit-content',
+	bgcolor = 'transparent',
 	children,
 }: Partial<CenterBoxProps>) => {
 	return (
-		<S.Wrapper {...{ width }} {...{ height }} {...{ bgColor }}>
+		<S.Wrapper {...{ width }} {...{ height }} {...{ bgcolor }}>
 			<S.Container>{children}</S.Container>
 		</S.Wrapper>
 	)
@@ -26,7 +26,7 @@ const Wrapper = styled.div<Partial<CenterBoxProps>>`
 	${FlexCenter}
 	width: ${({ width }) => width};
 	height: ${({ height }) => height};
-	background-color: ${({ bgColor }) => bgColor};
+	background-color: ${({ bgcolor }) => bgcolor};
 	padding: 0.5rem 1rem;
 `
 const Container = styled.div`

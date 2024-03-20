@@ -1,4 +1,3 @@
-import { CenterBox } from '@/components'
 import { Header } from '@/components/common'
 import { ExperienceNotice, HealthInformation, Home, ProductDetail, SelfDiagnosis } from '@/pages'
 import { Outlet, createBrowserRouter } from 'react-router-dom'
@@ -7,20 +6,18 @@ const Layout = () => {
 	return (
 		<>
 			<Header />
-			<CenterBox>
-				<Outlet />
-			</CenterBox>
+			<Outlet />
 		</>
 	)
 }
 
 export const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '',
 		element: <Layout />,
 		children: [
 			{
-				path: '.',
+				path: '/',
 				element: <Home />,
 			},
 			{

@@ -19,11 +19,11 @@ export const GlobalStyles = createGlobalStyle`
 
     font-family: 'SCDream';
     font-size: ${FONT_SIZE.md};
-    font-weight: ${FONT_WEIGHT.medium};
+    font-weight: ${FONT_WEIGHT.light};
   }
 
   html {
-    font-size: 62.5%;
+    font-size: 50%;
     background-color: ${COLOR.grayScale[1500]};
   }
 
