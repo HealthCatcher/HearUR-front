@@ -1,4 +1,5 @@
-import { BORDER_RADIUS } from '../../../../temp222/src/libs/styled-components'
+"use client";
+import { BORDER_RADIUS } from '@/libs/styled-components'
 import { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 

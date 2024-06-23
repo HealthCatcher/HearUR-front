@@ -1,3 +1,4 @@
+"use client";
 import { createGlobalStyle } from 'styled-components'
 import '../../assets/font/index.css'
 import { COLOR, FONT_SIZE, FONT_WEIGHT } from './token'
