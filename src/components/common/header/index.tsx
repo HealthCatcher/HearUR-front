@@ -1,4 +1,4 @@
-import { AlignCenter, COLOR } from '@/libs/styled-components'
+import { AlignCenter, COLOR } from '../../../../temp222/src/libs/styled-components'
 import styled from 'styled-components'
 
 export const Header = () => {

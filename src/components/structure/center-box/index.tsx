@@ -1,4 +1,4 @@
-import { FlexCenter } from '@/libs/styled-components/utils'
+import { FlexCenter } from '../../../../temp222/src/libs/styled-components/utils'
 import type { ReactNode } from 'react'
 import styled from 'styled-components'
 

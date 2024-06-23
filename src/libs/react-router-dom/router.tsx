@@ -1,5 +1,5 @@
-import { Header } from '@/components/common'
-import { ExperienceNotice, HealthInformation, Home, ProductDetail, SelfDiagnosis } from '@/pages'
+import { Header } from '../../components/common'
+import { ExperienceNotice, HealthInformation, Home, ProductDetail, SelfDiagnosis } from '../../../temp222/src/pages'
 import { Outlet, createBrowserRouter } from 'react-router-dom'
 
 const Layout = () => {

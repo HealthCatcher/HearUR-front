@@ -1,6 +1,6 @@
 /** 건강정보 페이지 */
-const HealthInformation = () => {
+const Page = () => {
 	return <div>HealthInformation</div>
 }
 
-export default HealthInformation
+export default Page
