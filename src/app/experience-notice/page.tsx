@@ -1,6 +1,6 @@
 /** 체험단 공고 */
-const Page = () => {
+const ExperiencePage = () => {
 	return <div>ExperienceNotice</div>
 }
 
-export default Page
+export default ExperiencePage
