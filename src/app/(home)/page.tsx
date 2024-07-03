@@ -55,7 +55,7 @@ export default function Page() {
               <div key={idx}>{category}</div>
           )
         })}
-        <Image className="bg-red-500 flex w-screen mr-10" src={MainLogo} alt='HearUR_Logo' loading={"lazy"}></Image>
+        <Image className="bg-brand-primary-200 flex w-screen mr-10" src={MainLogo} alt='HearUR_Logo' loading={"lazy"}></Image>
         {healthInfoSummaries.map((summary, idx) => {
           return (
               <div key={idx}>{summary.title}</div>

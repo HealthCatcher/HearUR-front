@@ -34,7 +34,7 @@ const LoginButton = () => {
 }
 const TopNavigator = () => {
   return (
-      <nav className="top-0 z-10 fixed bg-blue-500 p-4 w-full">
+      <nav className="top-0 z-10 fixed bg-brand-primary-500 p-4 w-full">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* 로고 또는 홈 버튼 */}
           <Link href="/" className="text-white text-lg font-bold">
