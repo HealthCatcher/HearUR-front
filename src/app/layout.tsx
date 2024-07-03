@@ -14,7 +14,9 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
       <html lang="en">
       <body>
       <TopNavigator/>
+      <div className={"mt-14"}>
       {children}
+        </div>
       </body>
       </html>
   );
