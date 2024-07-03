@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import "./login.css"
+import Link from "next/link";
 
 const onNaverLogin = () => {
   window.location.href = "http://localhost:8080/oauth2/authorization/naver";
@@ -46,7 +47,7 @@ const Page = () => {
           </button>
           <div className="flex justify-center mt-2 mb-4">
             <span className={"mr-6"}>계정이 없으신가요?</span>
-            <a href="#" className="text-blue-500">회원가입하기</a>
+            <Link href="/register" className="text-blue-500">회원가입하기</Link>
           </div>
           <div className="login-buttons">
             <button className="login-button naver-login" onClick={onNaverLogin}>

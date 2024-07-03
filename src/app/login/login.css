@@ -3,8 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(240, 240, 240, 0.9);
-    font-family: 'Arial', sans-serif;
+    background-color: rgba(250, 250, 250, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 음영 추가 */
 }
 
@@ -40,7 +39,7 @@
     display: flex;
     align-items: center;
     padding-left: 5px;
-
+    font-family: 'Arial', sans-serif;
 }
 
 .naver-login {
@@ -64,6 +63,7 @@
 .google-login {
     background-color: #ffffff;
     color: #333;
+    border: 1px solid rgba(51, 51, 51, 0.16);
 }
 
 .kakao-login {
