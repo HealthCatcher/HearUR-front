@@ -1,7 +1,31 @@
+"use client"
 import MainLogo from '../../../public/logo/main_logo_545x155.webp'
 import Image from 'next/image'
+import {useEffect} from "react";
 
-import styled from 'styled-components'
+const jwtExistsInLocalStorage = () => {
+  return localStorage.getItem('jwt') !== null;
+}
+
+const moveJwtToLocalStorage = () => {
+  if (!jwtExistsInLocalStorage()) {
+    console.log('로컬스토리지에 jwt없음');
+    fetch('http://localhost:8080/auth/jwt', {
+      method: 'GET',
+      credentials: 'include' // 쿠키 포함 설정
+    })
+        .then(response => {
+          console.log(response.headers);
+          const jwt:string | null = response.headers.get('Authorization');
+          if(jwt !== null) {
+            console.log('jwt:', jwt);
+            localStorage.setItem('jwt', jwt);
+          }
+        })
+        .then(data => console.log(data))
+        .catch(error => console.error('Error: jwt요청실패'));
+  }
+}
 
 /** HOME */
 export default function Page() {
@@ -20,6 +44,10 @@ export default function Page() {
       imgSrc: 'https://source.unsplash.com/random/300×300/?vitamin',
     },
   ]
+  useEffect(() => {
+    moveJwtToLocalStorage();
+  }, []);
+
   return (
       <>
         {categories.map((category, idx) => {
@@ -27,7 +55,7 @@ export default function Page() {
               <div key={idx}>{category}</div>
           )
         })}
-        <Image className="bg-red-500 flex w-screen mr-10" src={MainLogo} alt='HearUR_Logo'></Image>
+        <Image className="bg-red-500 flex w-screen mr-10" src={MainLogo} alt='HearUR_Logo' loading={"lazy"}></Image>
         {healthInfoSummaries.map((summary, idx) => {
           return (
               <div key={idx}>{summary.title}</div>
@@ -55,7 +83,7 @@ export default function Page() {
                 className="flex items-center px-4 py-2 bg-green-500 text-white font-semibold rounded shadow hover:bg-green-700 transition duration-300">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                    xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
               아이콘 버튼
             </button>

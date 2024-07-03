@@ -1,43 +1,100 @@
-/* App.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+.login-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    justify-content: center;
+    background-color: rgba(240, 240, 240, 0.9);
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 음영 추가 */
 }
 
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-h1 {
+.login-title {
     color: #333;
-    margin-bottom: 20px;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-family: 'SubFont', 'MainFont', serif;
 }
 
-button {
-    background-color: #03C75A; /* Naver green */
+.login-subtitle {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.login-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-button {
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+
+}
+
+.naver-login {
+    background-color: #03C75A;
+}
+
+.naver-login img {;
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.google-login img {
+    width: 24px;
+    height: 24px;
+    margin-left: 17px;
+    margin-right: 10px;
+}
+
+.google-login {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.kakao-login {
+    background-color: #FEE500;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.kakao-login img{
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.login-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.data-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
     color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin: 10px 0;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #028a3a;
-}
-
-button:focus {
-    outline: none;
+.data-button:hover {
+    background-color: #555;
 }
