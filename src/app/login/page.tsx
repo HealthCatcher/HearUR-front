@@ -1,7 +1,9 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import "./login.css"
 import Link from "next/link";
+import axios from "axios";
+import {useRouter} from "next/navigation";
 
 const onNaverLogin = () => {
   window.location.href = "http://localhost:8080/oauth2/authorization/naver";
@@ -13,18 +15,24 @@ const onKakaoLogin = () => {
   window.location.href = "http://localhost:8080/oauth2/authorization/kakao";
 
 }
-const getData = () => {
-  fetch("http://localhost:8080/my", {
-    method: "GET",
-    credentials: "include",
-  })
-      .then((response) => response.json())
-      .then((data) => {
-        alert(data);
-      }).catch((error) => alert(error));
-}
+
 
 const Page = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+  const login = (username: string, password: string) => {
+    axios.post("http://localhost:8080/login", {
+      username: username,
+      password: password,
+    }, {headers: {'Content-Type': 'application/json'}})
+        .then(response => {
+          console.log(response.headers);
+          localStorage.setItem("jwt", response.headers["authorization"]);
+          router.push("/");
+        })
+        .catch(error => alert(error));
+  }
   return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="login-container bg-white pt-10 pb-10 pl-20 pr-20 rounded-lg shadow-lg">
@@ -34,20 +42,22 @@ const Page = () => {
               type="text"
               className="login-input w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               placeholder="Email"
+              onChange={(e) => setUsername(e.target.value)}
           />
           <input
               type="password"
               className="login-input w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
           />
           <button
               className="w-80 h-10 bg-blue-500 text-white font-bold rounded-lg mb-2 hover:bg-blue-600"
-              onClick={() => alert("일반 유저 로그인")}
+              onClick={() => login(username, password)}
           >일반 계정으로 로그인하기
           </button>
           <div className="flex justify-center mt-2 mb-4">
             <span className={"mr-6"}>계정이 없으신가요?</span>
-            <Link href="/register" className="text-blue-500">회원가입하기</Link>
+            <Link href="/signup" className="text-blue-500">회원가입하기</Link>
           </div>
           <div className="login-buttons">
             <button className="login-button naver-login" onClick={onNaverLogin}>

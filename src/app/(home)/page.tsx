@@ -2,6 +2,7 @@
 import MainLogo from '../../../public/logo/main_logo_545x155.webp'
 import Image from 'next/image'
 import {useEffect} from "react";
+import axios from "axios";
 
 const jwtExistsInLocalStorage = () => {
   return localStorage.getItem('jwt') !== null;
@@ -9,23 +10,17 @@ const jwtExistsInLocalStorage = () => {
 
 const moveJwtToLocalStorage = () => {
   if (!jwtExistsInLocalStorage()) {
-    console.log('로컬스토리지에 jwt없음');
-    fetch('http://localhost:8080/auth/jwt', {
-      method: 'GET',
-      credentials: 'include' // 쿠키 포함 설정
-    })
-        .then(response => {
-          console.log(response.headers);
-          const jwt:string | null = response.headers.get('Authorization');
-          if(jwt !== null) {
-            console.log('jwt:', jwt);
-            localStorage.setItem('jwt', jwt);
-          }
-        })
-        .then(data => console.log(data))
-        .catch(error => console.error('Error: jwt요청실패'));
+    axios.get('http://localhost:8080/auth/jwt', { withCredentials: true })
+      .then(response => {
+        const jwt = response.headers['authorization']; // headers에서 JWT 추출
+        if (jwt) {
+          localStorage.setItem('jwt', jwt);
+        }
+      })
+      .then(data => console.log(data))
+      .catch(error => console.error('Error: jwt 요청 실패', error));
   }
-}
+};
 
 /** HOME */
 export default function Page() {

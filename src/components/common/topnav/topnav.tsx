@@ -1,10 +1,14 @@
 "use client";
 import Link from "next/link";
 import React, {useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
 
 const LoginButton = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const router = useRouter();
+  const handleLogout = () => {
+      localStorage.removeItem("jwt");
+    }
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsLoggedIn(localStorage.getItem("jwt") !== null);
@@ -17,7 +21,7 @@ const LoginButton = () => {
           <Link href="/my" className="text-white hover:text-gray-300">
             내 정보
           </Link>
-          <Link href="/logout" className="text-white hover:text-gray-300">
+          <Link href="/#" onClick={handleLogout} className="text-white hover:text-gray-300">
             로그아웃
           </Link>
         </>
