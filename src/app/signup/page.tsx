@@ -21,8 +21,10 @@ const SignupPage = () => {
   const [passwordError, setPasswordError] = useState("");
   const router = useRouter();
   const handleSignup = () => {
+    console.log("handle signup");
     if (!validateEmail(username)) {
-      return "이메일 형식이 올바르지 않습니다.";
+      setPasswordError("이메일 형식이 올바르지 않습니다.");
+      return;
     }
     if (password.length < 8) {
       setPasswordError("비밀번호는 8자 이상이어야 합니다.");
@@ -34,7 +36,8 @@ const SignupPage = () => {
     }
     const specialCharacterPattern = /[!@#$%^&*(),.?":{}|<>]/;
     if (!specialCharacterPattern.test(password)) {
-      return "비밀번호에 특수문자를 포함해야 합니다.";
+      setPasswordError("비밀번호에 특수문자를 포함해야 합니다.")
+      return;
     }
     // 이후 회원가입 로직 추가
     setPasswordError(""); // 에러 메시지 초기화
