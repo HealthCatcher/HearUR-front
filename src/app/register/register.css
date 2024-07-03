@@ -1,0 +1,16 @@
+/* login.css */
+.signup-container {
+    @apply flex flex-col items-center justify-center bg-white p-10 rounded-lg shadow-lg;
+}
+
+.signup-title {
+    @apply text-2xl font-bold text-gray-800 mb-4;
+}
+
+.signup-subtitle {
+    @apply text-gray-600 mb-8;
+}
+
+.signup-input {
+    @apply w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500;
+}
