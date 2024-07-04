@@ -4,6 +4,7 @@ import "./login.css"
 import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/navigation";
+import {useTheme} from "@/components/theme-provider";
 
 const onNaverLogin = () => {
   window.location.href = "http://localhost:8080/oauth2/authorization/naver";
@@ -16,23 +17,34 @@ const onKakaoLogin = () => {
 
 }
 
-
 const Page = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const {isLoggedIn, setIsLoggedIn} = useTheme();
   const router = useRouter();
   const login = (username: string, password: string) => {
+    if(password.length == 0) {
+      alert("비밀번호를 입력해주세요.");
+      return;
+    }
     axios.post("http://localhost:8080/login", {
       username: username,
       password: password,
     }, {headers: {'Content-Type': 'application/json'}})
         .then(response => {
-          console.log(response.headers);
           localStorage.setItem("jwt", response.headers["authorization"]);
+          setIsLoggedIn(true);
           router.push("/");
         })
-        .catch(error => alert(error));
+        .catch(error => {
+          error.response.status === 401 ? alert("아이디 또는 비밀번호가 일치하지 않습니다.") : alert("서버 오류가 발생했습니다.");
+        });
   }
+  const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      login(username, password);
+    }
+  };
   return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="login-container bg-white pt-10 pb-10 pl-20 pr-20 rounded-lg shadow-lg">
@@ -49,6 +61,7 @@ const Page = () => {
               className="login-input w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={handleKeyDown}
           />
           <button
               className="w-80 h-10 bg-blue-500 text-white font-bold rounded-lg mb-2 hover:bg-blue-600"

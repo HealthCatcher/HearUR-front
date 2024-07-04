@@ -2,17 +2,17 @@
 import Link from "next/link";
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
+import { useTheme } from "@/components/theme-provider";
 
 const LoginButton = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useTheme();
   const router = useRouter();
   const handleLogout = () => {
       localStorage.removeItem("jwt");
+      setIsLoggedIn(false);
     }
   useEffect(() => {
-    if (typeof window !== "undefined") {
       setIsLoggedIn(localStorage.getItem("jwt") !== null);
-    }
   }, []);
 
   if (isLoggedIn) {
