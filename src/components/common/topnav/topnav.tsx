@@ -15,7 +15,7 @@ const LoginButton = () => {
       setIsLoggedIn(localStorage.getItem("jwt") !== null);
   }, []);
 
-  if (isLoggedIn) {
+  if (localStorage.getItem("jwt") !== null) {
     return (
         <>
           <Link href="/my" className="text-white hover:text-gray-300">
