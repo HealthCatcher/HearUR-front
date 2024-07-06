@@ -1,25 +1,10 @@
-"use client"
 import MainLogo from '../../../public/logo/main_logo_545x155.webp'
 import Image from 'next/image'
-import {useEffect} from "react";
-import axios from "axios";
+import AuthComponent from "@/app/(home)/AuthComponent";
 
-const jwtExistsInLocalStorage = () => {
-  return localStorage.getItem('jwt') !== null;
-}
-
-const moveJwtToLocalStorage = () => {
-  if (!jwtExistsInLocalStorage()) {
-    axios.get('http://localhost:8080/auth/jwt', { withCredentials: true })
-      .then(response => {
-        const jwt = response.headers['authorization']; // headers에서 JWT 추출
-        if (jwt) {
-          localStorage.setItem('jwt', jwt);
-        }
-      })
-      .then(data => console.log(data))
-      .catch(error => console.error('Error: jwt 요청 실패', error));
-  }
+export const metadata = {
+  title: 'HearUR',
+  description: 'HearUR 홈페이지입니다.',
 };
 
 /** HOME */
@@ -39,12 +24,10 @@ export default function Page() {
       imgSrc: 'https://source.unsplash.com/random/300×300/?vitamin',
     },
   ]
-  useEffect(() => {
-    moveJwtToLocalStorage();
-  }, []);
 
   return (
       <>
+        <AuthComponent/>
         {categories.map((category, idx) => {
           return (
               <div key={idx}>{category}</div>
