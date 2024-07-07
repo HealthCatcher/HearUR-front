@@ -1,4 +1,7 @@
-/** 건강정보 페이지 */
+export const metadata = {
+  title: "HearUR | 건강정보",
+};
+
 const Page = () => {
   return (
       <>
@@ -6,5 +9,4 @@ const Page = () => {
       </>
   )
 }
-
 export default Page
