@@ -4,16 +4,16 @@ import {useRouter} from "next/navigation";
 
 const logout = () => {
   const router = useRouter();
-  const { setIsLoggedIn } = useTheme();
+  const {setIsLoggedIn} = useTheme();
   const handleLogout = () => {
-      localStorage.removeItem("jwt");
-      setIsLoggedIn(false);
-      router.push("/");
-    }
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    router.push("/");
+  }
   return (
-    <div>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+      <div className={"m-3"}>
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleLogout}>로그아웃</button>
+      </div>
   );
 }
 
