@@ -5,7 +5,6 @@ import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/navigation"
 
-//TODO context api 써보자
 const validateEmail = (email: string) => {
   // 이메일 형식의 정규 표현식
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -45,7 +44,7 @@ const SignupPage = () => {
   };
 
   const onSignup = (username: string, name: string, password: string) => {
-    axios.post('http://localhost:8080/signup', {
+    axios.post('http://localhost:8080/api/v1/auth/signup', {
       username: username,
       password: password,
       name: name,
@@ -56,13 +55,9 @@ const SignupPage = () => {
     })
         .then(response => {
           const data = response.data;
-          console.log(response);
-          console.log(data);
-          if (data.status_code === 200) {
-            router.push("/login");
-          } else {
-            throw new Error('이메일이 중복되었습니다.');
-          }
+          console.log("response: ",response);
+          if(response.status===201) router.push("/login");
+          else throw new Error("회원가입 요청에 문제가 생겼습니다.");
         })
         .catch(error => {
           console.log(error);
