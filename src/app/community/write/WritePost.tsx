@@ -12,7 +12,7 @@ const WritePost = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (localStorage.getItem('jwt') === null) {
-        router.push('/login');
+        //router.push('/login');
       }
     }
   }, [router]);

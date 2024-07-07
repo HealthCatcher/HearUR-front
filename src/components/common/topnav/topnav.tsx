@@ -40,6 +40,7 @@ const TopNavigator = () => {
             <NavLink href="/community">커뮤니티</NavLink>
             <NavLink href="/experience-notice">체험단</NavLink>
             <NavLink href="/self-diagnosis">자가진단</NavLink>
+            <NavLink href="/my">내 정보</NavLink>
             <LoginButton/>
           </div>
         </div>
