@@ -7,10 +7,7 @@ import { useTheme } from "@/components/theme-provider";
 const LoginButton = () => {
   const {setIsLoggedIn } = useTheme();
   useRouter();
-  const handleLogout = () => {
-      localStorage.removeItem("jwt");
-      setIsLoggedIn(false);
-    }
+
   useEffect(() => {
       setIsLoggedIn(localStorage.getItem("jwt") !== null);
   }, []);
