@@ -1,7 +1,7 @@
 import "./login.css"
 import Link from "next/link";
-import Login from "@/app/login/Login";
-import OauthLogin from "@/app/login/OauthLogin";
+import Login from "@/app/(auth)/login/Login";
+import OauthLogin from "@/app/(auth)/login/OauthLogin";
 import {Metadata} from "next";
 
 export const metadata:Metadata = {

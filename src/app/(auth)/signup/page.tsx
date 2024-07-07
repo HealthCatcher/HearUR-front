@@ -1,7 +1,7 @@
 import React from "react";
 import "./register.css";
 import Link from "next/link";
-import SignUp from "@/app/signup/SignUp";
+import SignUp from "@/app/(auth)/signup/SignUp";
 import {Metadata} from "next";
 
 export const metadata: Metadata = {

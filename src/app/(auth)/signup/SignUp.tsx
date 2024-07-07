@@ -1,6 +1,6 @@
 "use client";
 import React, {useState} from "react";
-import fetchSignUp from "@/app/signup/fetchSignUp";
+import fetchSignUp from "@/app/(auth)/signup/fetchSignUp";
 import {useRouter} from "next/navigation";
 
 const validateEmail = (email: string) => {
