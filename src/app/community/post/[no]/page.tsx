@@ -15,7 +15,6 @@ export async function generateMetadata({params: {no}}: IParams) {
 const post = ({params: {no}}: IParams) => {
   return (
       <div>
-        <h1>post {no}</h1>
         <PostItem params={{no}}/>
       </div>
   );
