@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useRouter} from "next/navigation";
 import { useTheme } from "@/components/theme-provider";
 
 const LoginButton = () => {
-  const { isLoggedIn, setIsLoggedIn } = useTheme();
-  const router = useRouter();
+  const {setIsLoggedIn } = useTheme();
+  useRouter();
   const handleLogout = () => {
       localStorage.removeItem("jwt");
       setIsLoggedIn(false);

@@ -7,15 +7,15 @@ import {useTheme} from "@/components/theme-provider";
 const login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {isLoggedIn, setIsLoggedIn} = useTheme();
+  const {setIsLoggedIn} = useTheme();
   const router = useRouter();
 
   const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      loginhandler(username, password);
+      loginHandler(username, password);
     }
   };
-  const loginhandler = (username: string, password: string) => {
+  const loginHandler = (username: string, password: string) => {
     if (password.length == 0) {
       alert("비밀번호를 입력해주세요.");
       return;
@@ -50,7 +50,7 @@ const login = () => {
         />
         <button
             className="w-80 h-10 bg-blue-500 text-white font-bold rounded-lg mb-2 hover:bg-blue-600"
-            onClick={() => loginhandler(username, password)}
+            onClick={() => loginHandler(username, password)}
         >일반 계정으로 로그인하기
         </button>
       </>
