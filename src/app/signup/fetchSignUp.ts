@@ -13,7 +13,6 @@ const onSignup = (username: string, name: string, password: string) => {
     }
   })
       .then(response => {
-        const data = response.data;
         console.log("response: ", response);
         if (response.status === 201){
           router.push("/login");
