@@ -10,7 +10,7 @@ const LoginButton = () => {
 
   useEffect(() => {
       setIsLoggedIn(localStorage.getItem("jwt") !== null);
-  }, []);
+  }, [setIsLoggedIn]);
 
   if (localStorage.getItem("jwt") !== null) {
     return (

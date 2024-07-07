@@ -2,7 +2,7 @@
 import axios from "axios";
 import {useState} from "react";
 
-const nickName = () => {
+const NickName = () => {
   const [nickName, setNickName] = useState('');
   const fetchNickName = () => {
     axios.put('http://localhost:8080/api/v1/user/nickname')
@@ -32,4 +32,4 @@ const nickName = () => {
 }
 
 
-export default nickName;
+export default NickName;

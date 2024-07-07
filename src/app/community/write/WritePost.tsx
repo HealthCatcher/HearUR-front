@@ -3,7 +3,7 @@ import handleSubmit from "@/app/community/write/submit";
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 
-const writePost = () => {
+const WritePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
@@ -15,7 +15,7 @@ const writePost = () => {
         router.push('/login');
       }
     }
-  }, []);
+  }, [router]);
   return (
       <>
         <div>
@@ -43,4 +43,4 @@ const writePost = () => {
 }
 
 
-export default writePost;
+export default WritePost;

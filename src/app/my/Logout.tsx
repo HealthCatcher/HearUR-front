@@ -2,7 +2,7 @@
 import {useTheme} from "@/components/theme-provider"
 import {useRouter} from "next/navigation";
 
-const logout = () => {
+const Logout = () => {
   const router = useRouter();
   const {setIsLoggedIn} = useTheme();
   const handleLogout = () => {
@@ -17,4 +17,4 @@ const logout = () => {
   );
 }
 
-export default logout;
+export default Logout;

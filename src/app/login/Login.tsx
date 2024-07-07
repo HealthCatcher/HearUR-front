@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {useRouter} from "next/navigation";
 import {useTheme} from "@/components/theme-provider";
 
-const login = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const {setIsLoggedIn} = useTheme();
@@ -57,4 +57,4 @@ const login = () => {
   )
 }
 
-export default login;
+export default Login;
