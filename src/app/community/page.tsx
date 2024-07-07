@@ -1,6 +1,10 @@
 import Link from "next/link";
 import PostItems from "@/app/community/PostItems";
 
+export const metadata = {
+  title: "HearUR | 커뮤니티",
+};
+
 
 const CommunityPage = () => {
   return (
