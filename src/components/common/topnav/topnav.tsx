@@ -21,9 +21,6 @@ const LoginButton = () => {
           <Link href="/my" className="text-white hover:text-gray-300">
             내 정보
           </Link>
-          <Link href="/#" onClick={handleLogout} className="text-white hover:text-gray-300">
-            로그아웃
-          </Link>
         </>
     );
   } else {
@@ -51,7 +48,6 @@ const TopNavigator = () => {
             <NavLink href="/self-diagnosis">자가진단</NavLink>
             <NavLink href="/community">커뮤니티</NavLink>
             <NavLink href="/experience-notice">체험단</NavLink>
-            <NavLink href="/settings">설정</NavLink>
             <LoginButton/>
           </div>
         </div>
