@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 /** HOME */
-export default function Page() {
+const Page = async () => {
   const categories = ['감염병', '선청성 질환', '신생물']
   const healthInfoSummaries = [
     {
@@ -76,3 +76,5 @@ export default function Page() {
       </>
   );
 }
+
+export default Page;
