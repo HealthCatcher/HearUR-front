@@ -2,10 +2,12 @@ import axios from "axios";
 
 const getAuthorization = async (setIsLoggedIn: (isLoggedIn: boolean) => void) => {
   console.log('getAuthorization');
-  if (localStorage.getItem('jwt') !== null) {
-    setIsLoggedIn(true);
-  } else {
-    await moveJwtToLocalStorage(setIsLoggedIn);
+  if (typeof window !== 'undefined') {
+    if (localStorage.getItem('jwt') !== null) {
+      setIsLoggedIn(true);
+    } else {
+      await moveJwtToLocalStorage(setIsLoggedIn);
+    }
   }
 }
 
