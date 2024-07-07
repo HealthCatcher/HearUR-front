@@ -4,6 +4,7 @@ import "./register.css";
 import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/navigation"
+import SignUp from "@/app/signup/SignUp";
 
 const validateEmail = (email: string) => {
   // 이메일 형식의 정규 표현식
@@ -73,37 +74,7 @@ const SignupPage = () => {
         <div className="signup-container bg-white p-10 rounded-lg shadow-lg">
           <h1 className="signup-title">회원가입</h1>
           <p className="signup-subtitle">Create a new account</p>
-          <input
-              type="text"
-              className="signup-input w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              placeholder="이메일 email"
-              onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-              type="text"
-              className="signup-input w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              placeholder="이름 name"
-              onChange={(e) => setName(e.target.value)}
-          />
-          <input
-              type="password"
-              className="signup-input w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              placeholder="비밀번호 8자 이상 password"
-              onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-              type="password"
-              className="signup-input w-80 p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              placeholder="비밀번호 확인 confirm password"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          {passwordError && <p className="text-red-500 mb-4">{passwordError}</p>}
-          <button
-              className="w-80 h-10 bg-blue-500 text-white font-bold rounded-lg mb-2 hover:bg-blue-600"
-              onClick={handleSignup}
-          >
-            회원가입하기
-          </button>
+          <SignUp/>
           <div className="flex justify-center mt-2 mb-4">
             <span className="mr-6">이미 계정이 있으신가요?</span>
             <Link href="/login" className="text-blue-500">로그인하기</Link>
