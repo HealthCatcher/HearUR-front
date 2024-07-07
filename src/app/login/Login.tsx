@@ -10,7 +10,7 @@ const Login = () => {
   const {setIsLoggedIn} = useTheme();
   const router = useRouter();
 
-  const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       loginHandler(username, password);
     }
@@ -25,9 +25,11 @@ const Login = () => {
       password: password,
     }, {headers: {'Content-Type': 'application/json'}})
         .then(response => {
-          localStorage.setItem("jwt", response.headers["authorization"]);
-          setIsLoggedIn(true);
-          router.push("/");
+          if (typeof window !== 'undefined') {
+            localStorage.setItem("jwt", response.headers["authorization"]);
+            setIsLoggedIn(true);
+            router.push("/");
+          }
         })
         .catch(error => {
           error.response.status === 401 ? alert("아이디 또는 비밀번호가 일치하지 않습니다.") : alert("서버 오류가 발생했습니다.");

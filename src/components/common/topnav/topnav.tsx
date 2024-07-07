@@ -1,34 +1,29 @@
 "use client";
 import Link from "next/link";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
-import { useTheme } from "@/components/theme-provider";
+import {useTheme} from "@/components/theme-provider";
 
 const LoginButton = () => {
-  const {setIsLoggedIn } = useTheme();
-  useRouter();
-
+  const {setIsLoggedIn} = useTheme();
+  const router = useRouter();
+  const [loginComponent, setLoginComponent] = useState<React.ReactNode>(<></>);
   useEffect(() => {
-      setIsLoggedIn(localStorage.getItem("jwt") !== null);
-  }, [setIsLoggedIn]);
-
-  if (localStorage.getItem("jwt") !== null) {
-    return (
-        <>
+    setIsLoggedIn(localStorage.getItem("jwt") !== null);
+    if (localStorage.getItem("jwt") !== null) {
+      setLoginComponent(
           <Link href="/my" className="text-white hover:text-gray-300">
             내 정보
-          </Link>
-        </>
-    );
-  } else {
-    return (
-        <>
+          </Link>)
+    } else {
+      setLoginComponent(
           <Link href="/login" className="text-white hover:text-gray-300">
             로그인
           </Link>
-        </>
-    );
-  }
+      )
+    }
+  }, [setIsLoggedIn]);
+  return loginComponent;
 }
 const TopNavigator = () => {
   return (
