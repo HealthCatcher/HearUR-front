@@ -5,7 +5,7 @@ import {useRouter} from "next/navigation";
 import {useTheme} from "@/components/theme-provider";
 
 const LoginButton = () => {
-  const {setIsLoggedIn} = useTheme();
+  const {isLoggedIn, setIsLoggedIn} = useTheme();
   const router = useRouter();
   const [loginComponent, setLoginComponent] = useState<React.ReactNode>(<></>);
   useEffect(() => {
@@ -22,7 +22,7 @@ const LoginButton = () => {
           </Link>
       )
     }
-  }, [setIsLoggedIn]);
+  }, [isLoggedIn]);
   return loginComponent;
 }
 const TopNavigator = () => {
