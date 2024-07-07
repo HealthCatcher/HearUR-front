@@ -1,5 +1,3 @@
-"use client";
-import {useEffect, useState} from "react";
 import Link from "next/link";
 import getPosts from "@/app/community/getPosts";
 
@@ -11,19 +9,8 @@ export interface Post {
   createDate: string;
 }
 
-const PostItems = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  useEffect(() => {
-    (async () => {
-      const data = await getPosts();
-      if (Array.isArray(data)) {
-        setPosts(data);
-      } else {
-        console.error('Error: Received data is not an array');
-      }
-    })();
-  }, []);
-
+const PostItems = async () => {
+  const posts = await getPosts();
   return (
       posts.length > 0 ? (
           posts.map((post: Post) => (
