@@ -37,9 +37,9 @@ const TopNavigator = () => {
           {/* 탭 목록 */}
           <div className="flex space-x-4 mr-3">
             <NavLink href="/health-information">건강정보</NavLink>
-            <NavLink href="/self-diagnosis">자가진단</NavLink>
             <NavLink href="/community">커뮤니티</NavLink>
             <NavLink href="/experience-notice">체험단</NavLink>
+            <NavLink href="/self-diagnosis">자가진단</NavLink>
             <LoginButton/>
           </div>
         </div>
