@@ -2,7 +2,6 @@
 import createPostRequest from "@/utils/api/post/createPostRequest";
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
-import {Response} from "@/types/response";
 
 const WritePost = () => {
   const [title, setTitle] = useState('');
