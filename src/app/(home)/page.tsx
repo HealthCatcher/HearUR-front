@@ -1,6 +1,6 @@
 import MainLogo from '../../../public/logo/main_logo_545x155.webp'
 import Image from 'next/image'
-import AuthComponent from "@/app/(home)/AuthComponent";
+import CheckAuth from "@/components/login/CheckAuth";
 
 export const metadata = {
   title: 'HearUR',
@@ -27,7 +27,7 @@ const Page = async () => {
 
   return (
       <>
-        <AuthComponent/>
+        <CheckAuth/>
         <div className="p-4 bg-white rounded-lg shadow-md mb-4">
           <h2 className="text-2xl font-bold mb-4">Categories</h2>
           <div className="flex space-x-4">

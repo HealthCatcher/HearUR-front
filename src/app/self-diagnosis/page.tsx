@@ -1,4 +1,4 @@
-import Category from "@/app/self-diagnosis/Category";
+import Category from "@/components/selfdiagnosis/Category";
 
 export const metadata = {
   title: "HearUR | 자가진단",

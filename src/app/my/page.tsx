@@ -1,7 +1,7 @@
-import Logout from "@/app/my/Logout";
-import NickName from "@/app/my/NickName";
-import NewPassword from "@/app/my/NewPassword";
-import IsLoggedIn from "@/app/my/IsLoggedIn";
+import Logout from "@/components/mysetting/Logout";
+import NickName from "@/components/mysetting/NickName";
+import NewPassword from "@/components/mysetting/NewPassword";
+import IsLoggedIn from "@/components/mysetting/IsLoggedIn";
 
 export const metadata = {
   title: "HearUR | 내 정보",

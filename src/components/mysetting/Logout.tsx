@@ -1,13 +1,12 @@
 "use client";
-import {useTheme} from "@/components/theme-provider"
 import {useRouter} from "next/navigation";
+import {useAuth} from "@/utils/context/authContext";
 
 const Logout = () => {
+  const {logout} = useAuth();
   const router = useRouter();
-  const {setIsLoggedIn} = useTheme();
   const handleLogout = () => {
-    localStorage.removeItem("jwt");
-    setIsLoggedIn(false);
+    logout();
     router.push("/");
   }
   return (

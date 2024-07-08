@@ -7,7 +7,7 @@ import {SignInRequest} from "@/utils/api/signin/signInRequest";
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {user, login, logout} = useAuth();
+  const {login} = useAuth();
   const router = useRouter();
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {

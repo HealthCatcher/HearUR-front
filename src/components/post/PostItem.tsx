@@ -1,4 +1,4 @@
-import getPost from "@/app/community/post/[no]/getPost";
+import getPostRequest from "@/utils/api/post/getPostRequest";
 import {IParams} from "@/app/community/post/[no]/page";
 
 export interface Post {
@@ -20,7 +20,7 @@ export interface comment {
 }
 
 const PostItem = async ({params: {no}}: IParams) => {
-  const post = await getPost(no);
+  const post = await getPostRequest(no);
   if (!post) return <div>게시글이 불러오는 중입니다...</div>
   return (
     <div className="bg-gray-100 p-8">

@@ -1,9 +1,9 @@
 "use client";
 import {useState} from "react";
-import HealthRecord from "@/app/self-diagnosis/HealthRecord";
-import LifeStyle from "@/app/self-diagnosis/LifeStyle";
-import MentalHealth from "@/app/self-diagnosis/MentalHealth";
-import ChronicDisease from "@/app/self-diagnosis/ChronicDisease";
+import HealthRecord from "@/components/selfdiagnosis/HealthRecord";
+import LifeStyle from "@/components/selfdiagnosis/LifeStyle";
+import MentalHealth from "@/components/selfdiagnosis/MentalHealth";
+import ChronicDisease from "@/components/selfdiagnosis/ChronicDisease";
 
 const Category = () => {
   const [activeTab, setActiveTab] = useState<string>('healthRecord'); // 초기 탭 설정

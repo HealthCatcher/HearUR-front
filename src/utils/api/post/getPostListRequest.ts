@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getPosts = async () => {
+const getPostListRequest = async () => {
   return axios.get('http://localhost:8080/api/v1/community/post')
       .then(response => {
         if (response.status === 200) {
@@ -16,4 +16,4 @@ const getPosts = async () => {
       });
 }
 
-export default getPosts;
+export default getPostListRequest;

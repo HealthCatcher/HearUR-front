@@ -1,12 +1,12 @@
-import getPost from "@/app/community/post/[no]/getPost";
-import {Post} from "@/app/community/PostItems";
-import PostItem from "@/app/community/post/[no]/PostItem";
+import getPostRequest from "@/utils/api/post/getPostRequest";
+import {Post} from "@/components/post/PostItems";
+import PostItem from "@/components/post/PostItem";
 export interface IParams {
   params: { no: number };
 }
 
 export async function generateMetadata({params: {no}}: IParams) {
-  const post:Post = await getPost(no);
+  const post:Post = await getPostRequest(no);
   return {
     title: "HearUR | 게시글:" + post.title,
   };

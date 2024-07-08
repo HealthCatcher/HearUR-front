@@ -1,6 +1,6 @@
 "use client";
 import React, {useState} from "react";
-import fetchSignUp from "@/app/(auth)/signup/fetchSignUp";
+import onSignup from "@/utils/api/signup/signupRequest";
 import {useRouter} from "next/navigation";
 
 const validateEmail = (email: string) => {
@@ -37,7 +37,16 @@ const SignUp = () => {
     }
     // 이후 회원가입 로직 추가
     setErrorMessage(""); // 에러 메시지 초기화
-    fetchSignUp(setErrorMessage, router, username, name, password)
+    const response = onSignup(username, name, password)
+    response.then((r) => {
+      if (r.status === 201) {
+        router.push('/signin');
+      } else {
+        setErrorMessage("회원가입에 실패했습니다.");
+      }
+    }).catch(e => {
+      setErrorMessage("회원가입에 실패했습니다.");
+    });
   };
   return (
       <>

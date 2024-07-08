@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getPosts from "@/app/community/getPosts";
+import getPostListRequest from "@/utils/api/post/getPostListRequest";
 
 export interface Post {
   no: number;
@@ -10,7 +10,7 @@ export interface Post {
 }
 
 const PostItems = async () => {
-  const posts = await getPosts();
+  const posts = await getPostListRequest();
   return (
       posts.length > 0 ? (
           posts.map((post: Post) => (
@@ -24,7 +24,7 @@ const PostItems = async () => {
               </Link>
           ))
       ) : (
-          <div>게시글이 없습니다.</div>
+          <div>게시글을 불러오는데 오류가 생겼습니다.</div>
       )
   );
 };

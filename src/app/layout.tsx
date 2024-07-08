@@ -1,18 +1,18 @@
-import {ThemeProvider} from "@/components/theme-provider";
 import "./globals.css";
 import TopNavigator from "@/components/common/topnav/topnav";
+import {AuthProvider} from "@/utils/context/authContext";
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
   return (
       <>
         <html>
         <body>
-        <ThemeProvider>
+        <AuthProvider>
           <TopNavigator/>
           <div className={"mt-16"}>
             {children}
           </div>
-        </ThemeProvider>
+          </AuthProvider>
         </body>
         </html>
       </>
