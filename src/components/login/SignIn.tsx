@@ -1,40 +1,37 @@
 "use client";
-import axios from "axios";
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
-import {useTheme} from "@/components/theme-provider";
+import {useAuth} from "@/utils/context/authContext";
+import {SignInRequest} from "@/utils/api/signin/signInRequest";
 
-const Login = () => {
+const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {setIsLoggedIn} = useTheme();
+  const {user, login, logout} = useAuth();
   const router = useRouter();
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      loginHandler(username, password);
+      signInHandler(username, password);
     }
   };
-  const loginHandler = (username: string, password: string) => {
-    if (password.length == 0) {
+  const signInHandler = async (username: string, password: string) => {
+    if (password.length === 0) {
       alert("비밀번호를 입력해주세요.");
       return;
     }
-    axios.post("http://localhost:8080/login", {
-      username: username,
-      password: password,
-    }, {headers: {'Content-Type': 'application/json'}})
-        .then(response => {
-          if (typeof window !== 'undefined') {
-            localStorage.setItem("jwt", response.headers["authorization"]);
-            setIsLoggedIn(true);
-            router.push("/");
-          }
-        })
-        .catch(error => {
-          error.response.status === 401 ? alert("아이디 또는 비밀번호가 일치하지 않습니다.") : alert("서버 오류가 발생했습니다.");
-        });
-  }
+    const result = await SignInRequest(username, password);
+    if (result.jwt) {
+      login({jwt: result.jwt});
+      router.push("/");
+    } else {
+      if (result.error === 401) {
+        alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+      } else {
+        alert("서버 오류가 발생했습니다.");
+      }
+    }
+  };
   return (
       <>
         <input
@@ -52,11 +49,11 @@ const Login = () => {
         />
         <button
             className="w-80 h-10 bg-blue-500 text-white font-bold rounded-lg mb-2 hover:bg-blue-600"
-            onClick={() => loginHandler(username, password)}
+            onClick={() => signInHandler(username, password)}
         >일반 계정으로 로그인하기
         </button>
       </>
   )
 }
 
-export default Login;
+export default SignIn;

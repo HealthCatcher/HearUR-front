@@ -1,47 +1,31 @@
 "use client";
 import Link from "next/link";
 import React, {useEffect, useState} from "react";
-import {useRouter} from "next/navigation";
-import {useTheme} from "@/components/theme-provider";
+import {useAuth} from "@/utils/context/authContext";
 
-const LoginButton = () => {
-  const {isLoggedIn, setIsLoggedIn} = useTheme();
-  const router = useRouter();
-  const [loginComponent, setLoginComponent] = useState<React.ReactNode>(<></>);
-  useEffect(() => {
-    setIsLoggedIn(localStorage.getItem("jwt") !== null);
-    if (localStorage.getItem("jwt") !== null) {
-      setLoginComponent(
-          <Link href="/my" className="text-white hover:text-gray-300">
-            내 정보
-          </Link>)
-    } else {
-      setLoginComponent(
-          <Link href="/login" className="text-white hover:text-gray-300">
-            로그인
-          </Link>
-      )
-    }
-  }, [isLoggedIn]);
-  return loginComponent;
-}
 const TopNavigator = () => {
+  const {user, loading} = useAuth();
+
   return (
       <nav className="top-0 z-10 fixed bg-brand-primary-500 p-4 w-full">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          {/* 로고 또는 홈 버튼 */}
           <Link href="/" className="text-white text-lg font-bold">
             HearUR
           </Link>
 
-          {/* 탭 목록 */}
           <div className="flex space-x-4 mr-3">
             <NavLink href="/health-information">건강정보</NavLink>
             <NavLink href="/community">커뮤니티</NavLink>
             <NavLink href="/experience-notice">체험단</NavLink>
             <NavLink href="/self-diagnosis">자가진단</NavLink>
-            <NavLink href="/my">내 정보</NavLink>
-            <LoginButton/>
+            <NavLink href="/my">내 정보</NavLink> {/* 배포시 삭제 해야함 */}
+            {loading ? null : (user ? (
+                <>
+                  <NavLink href="/my">내 정보</NavLink>
+                </>
+            ) : (
+                  <NavLink href="/login">로그인</NavLink>
+            ))}
           </div>
         </div>
       </nav>
