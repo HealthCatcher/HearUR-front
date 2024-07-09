@@ -13,7 +13,8 @@ const retrieveJwt = async (): Promise<string | null> => {
           return newJwt;
         }
       } catch (error) {
-        console.error('Error retrieving JWT:', error);
+        console.error("서버가 안켜져있거나 쿠키가 없거나 서버에 문제가있음");
+        //console.error('Error retrieving JWT:', error);
       }
     }
   }

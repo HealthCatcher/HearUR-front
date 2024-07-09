@@ -22,6 +22,7 @@ export interface comment {
 const PostItem = async ({params: {no}}: IParams) => {
   const post = await getPostRequest(no);
   if (!post) return <div>게시글이 불러오는 중입니다...</div>
+  if (post === -1) return <div>게시글을 불러오는데 문제가 생겼습니다.</div>
   return (
     <div className="bg-gray-100 p-8">
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">

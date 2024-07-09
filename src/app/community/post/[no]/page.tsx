@@ -8,7 +8,7 @@ export interface IParams {
 export async function generateMetadata({params: {no}}: IParams) {
   const post:Post = await getPostRequest(no);
   return {
-    title: "HearUR | 게시글:" + post.title,
+    title: "HearUR | 게시글:" + (post.title ? post.title : "찾을 수 없습니다."),
   };
 }
 

@@ -10,7 +10,10 @@ const getPostRequest = async (no: number) => {
           throw new Error("게시글을 불러오는데 문제가 생겼습니다.");
         }
       })
-      .catch(error => console.error('Error: ', error));
+      .catch(error => {
+        console.error('Error: ', error);
+        return -1;
+      });
 }
 
 
