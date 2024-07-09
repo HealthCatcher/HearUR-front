@@ -6,13 +6,13 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
   return (
       <>
         <html>
-        <body>
+        <body className="flex flex-col min-h-screen">
         <AuthProvider>
           <TopNavigator/>
-          <div className={"mt-16"}>
+          <main className="flex-1" style={{minHeight: 'calc(100vh - 4rem)'}}>
             {children}
-          </div>
-          </AuthProvider>
+          </main>
+        </AuthProvider>
         </body>
         </html>
       </>
