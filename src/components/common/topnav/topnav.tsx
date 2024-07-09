@@ -7,6 +7,7 @@ const TopNavigator = () => {
   const {user, loading} = useAuth();
 
   return (
+      <>
       <nav className="top-0 z-10 fixed bg-brand-primary-500 p-4 w-full">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-white text-lg font-bold">
@@ -24,11 +25,13 @@ const TopNavigator = () => {
                   <NavLink href="/my">내 정보</NavLink>
                 </>
             ) : (
-                  <NavLink href="/login">로그인</NavLink>
+                  <NavLink href="/signin">로그인</NavLink>
             ))}
           </div>
         </div>
       </nav>
+        <div className="h-16"></div>
+      </>
   );
 }
 
