@@ -89,8 +89,8 @@ const Page = async () => {
         </section>
         <section className="testimonials mb-8">
           <h2 className="text-2xl font-bold mb-4">사용자 후기</h2>
-          <p>"건강 관리로 이런 변화를 경험했어요"</p>
-          <p>"이용자들의 성공 이야기"</p>
+          <p>&quot;건강관리로 이런 변화를 경험했어요&quot;</p>
+          <p>&quot;이용자들의 성공 이야기&quot;</p>
         </section>
         <section className="quick-links">
           <h2 className="text-2xl font-bold mb-4">빠른 링크</h2>
