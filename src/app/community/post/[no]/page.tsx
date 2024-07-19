@@ -1,5 +1,5 @@
 import getPostRequest from "@/utils/api/post/getPostRequest";
-import {Post} from "@/components/post/PostItems";
+import {Post} from "@/components/post/PostListItem";
 import PostItem from "@/components/post/PostItem";
 export interface IParams {
   params: { no: number };
