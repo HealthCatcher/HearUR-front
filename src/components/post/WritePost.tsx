@@ -19,7 +19,8 @@ const WritePost = () => {
   const handle = async () => {
     const response = await createPostRequest(title, content, category);
     if (response.status === 201) {
-      router.push(response.location);
+      const postNo = response.location.split('/').pop();
+      router.push("/community/post/" + postNo);
     } else {
       alert("글쓰기에 실패했습니다.");
     }
