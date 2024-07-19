@@ -24,7 +24,6 @@ export interface comment {
 const PostItem = async ({params: {no}}: IParams) => {
 
   const post = await getPostRequest(no);
-  //예시로 post입니다.
   if (Number(no) === -1) return (
       <ExamplePost/>
   );
@@ -46,6 +45,12 @@ const PostItem = async ({params: {no}}: IParams) => {
           </p>
           <p className="text-sm text-gray-600 mb-4">
             카테고리: <span className="font-medium">{post.category}</span>
+          </p>
+          <p className={"text-sm text-gray-600 mb-2"}>
+            조회수: <span className={"font-medium"}>{post.views}</span>
+          </p>
+          <p className="text-sm text-gray-600 mb-4">
+            추천수: <span className="font-medium">{post.likes}</span>
           </p>
           <p className="text-gray-700 leading-relaxed mb-6">{post.content}</p>
 
