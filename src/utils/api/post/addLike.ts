@@ -11,13 +11,17 @@ export const addLike = async (postNo: number) => {
       'Authorization': `${localStorage.getItem('jwt')}`,
     }
   }).then(response => {
+    console.log("addLike api response: ",response);
     if (response.status === 204) {
       return response.data;
-    } else {
+    } //else if (){
+
+    //}
+    else {
       throw new Error("좋아요를 추가하는데 문제가 생겼습니다.");
     }
   }).catch(error => {
     console.error('Error: ', error);
-    return [];
+    return -1;
   });
 }
