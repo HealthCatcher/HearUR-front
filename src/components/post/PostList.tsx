@@ -1,14 +1,7 @@
 import ExamplePosts from "@/components/post/ExamplePosts";
 import PostListItem from "@/components/post/PostListItem";
 import React from "react";
-
-export interface Post {
-  no: number;
-  category: string;
-  title: string;
-  author: string;
-  createDate: string;
-}
+import {Post} from "@/components/post/PostItem";
 
 interface PostListProps {
   posts: Post[];
