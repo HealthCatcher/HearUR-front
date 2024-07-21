@@ -1,6 +1,6 @@
-import Link from "next/link";
 import ExamplePosts from "@/components/post/ExamplePosts";
 import PostListItem from "@/components/post/PostListItem";
+import React from "react";
 
 export interface Post {
   no: number;
@@ -10,7 +10,11 @@ export interface Post {
   createDate: string;
 }
 
-const PostList = async (posts:any) => {
+interface PostListProps {
+  posts: Post[];
+}
+
+const PostList: React.FC<PostListProps> = ({ posts }) => {
   return (
       posts.length > 0 ? (
           posts.map((post: Post) => (

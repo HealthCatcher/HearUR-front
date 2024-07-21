@@ -1,6 +1,8 @@
 import getPostRequest from "@/utils/api/post/getPostRequest";
 import {IParams} from "@/app/community/post/[no]/page";
 import ExamplePost from "@/components/post/ExamplePost";
+import InputComment from "@/components/post/InputComment";
+import RemoveCommentButton from "@/components/post/RemoveCommentButton";
 
 export interface Post {
   no: number;
@@ -12,8 +14,11 @@ export interface Post {
   updateDate: string;
   updated: boolean;
   comments: comment[];
+  views: number;
+  likes: number;
 }
 export interface comment {
+  id: string;
   author: string;
   content: string;
   createDate: string;
@@ -23,12 +28,13 @@ export interface comment {
 
 const PostItem = async ({params: {no}}: IParams) => {
 
-  const post = await getPostRequest(no);
+  const fetchPost = await getPostRequest(no);
   if (Number(no) === -1) return (
       <ExamplePost/>
   );
-  if (!post) return <div>게시글이 불러오는 중입니다...</div>
-  if (post === -1) return <div>게시글을 불러오는데 문제가 생겼습니다.</div>
+  if (!fetchPost) return <div>게시글이 불러오는 중입니다...</div>
+  if (fetchPost === -1) return <div>게시글을 불러오는데 문제가 생겼습니다.</div>
+  const post: Post = fetchPost as Post
   return (
       <div className="bg-gray-100 p-8">
         <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
@@ -56,6 +62,7 @@ const PostItem = async ({params: {no}}: IParams) => {
 
           <div className="mt-6">
             <h3 className="text-xl font-bold text-gray-800 mb-4">댓글</h3>
+            <InputComment postNo={post.no}/>
             {post.comments.map((comment: comment, index: number) => (
                 <div key={index} className="bg-gray-50 p-4 rounded-lg shadow mb-4">
                   <p className="text-sm text-gray-600 mb-2">
@@ -68,6 +75,7 @@ const PostItem = async ({params: {no}}: IParams) => {
                     {comment.updated && <span className="text-xs text-red-500"> (수정됨)</span>}
                   </p>
                   <p className="text-gray-700 leading-relaxed">{comment.content}</p>
+                  <RemoveCommentButton commentId={comment.id} />
             </div>
           ))}
         </div>
