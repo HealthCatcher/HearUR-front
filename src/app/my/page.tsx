@@ -1,5 +1,5 @@
 import Logout from "@/components/mysetting/Logout";
-import NickName from "@/components/mysetting/NickName";
+import Nickname from "@/components/mysetting/Nickname";
 import NewPassword from "@/components/mysetting/NewPassword";
 import IsLoggedIn from "@/components/mysetting/IsLoggedIn";
 
@@ -16,7 +16,7 @@ const Page = () => {
           <h1 className="text-4xl font-bold mb-4">내 정보</h1>
           <Logout/>
           <NewPassword/>
-          <NickName/>
+          <Nickname/>
         </div>
       </div>
   );
