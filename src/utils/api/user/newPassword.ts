@@ -10,7 +10,7 @@ const newPassword = async (password: string) => {
     }
   }).then(response => {
     if (response.status === 200) {
-      return response.data;
+      return 1;
     } else {
       throw new Error("비밀번호 변경에 실패했습니다.");
     }
