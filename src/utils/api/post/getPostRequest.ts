@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Post} from "@/components/post/PostItem";
+import {Post} from "@/components/community/post/PostItem";
 
 const getPostRequest = async (no: number): Promise<Post | number> => {
   return axios.get(`http://localhost:8080/api/v1/community/post/${no}`)
@@ -11,7 +11,8 @@ const getPostRequest = async (no: number): Promise<Post | number> => {
         }
       })
       .catch(error => {
-        console.error('Error: ', error);
+        console.error('getPostRequestApiError');
+        //console.error('getPostRequestApiError: ', error);
         return -1;
       });
 }

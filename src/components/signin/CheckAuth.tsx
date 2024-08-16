@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import retrieveJwt from '@/utils/api/retrieveJwt';
+import retrieveJwt from '@/utils/api/user/retrieveJwt';
 import { useAuth } from '@/utils/context/authContext';
 
 const CheckAuth = () => {

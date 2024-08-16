@@ -1,8 +1,8 @@
 import getPostRequest from "@/utils/api/post/getPostRequest";
 import {IParams} from "@/app/community/post/[no]/page";
-import ExamplePost from "@/components/post/ExamplePost";
-import InputComment from "@/components/post/InputComment";
-import RemoveCommentButton from "@/components/post/RemoveCommentButton";
+import ExamplePost from "@/components/community/post/ExamplePost";
+import InputComment from "@/components/community/comment/InputComment";
+import RemoveCommentButton from "@/components/community/comment/RemoveCommentButton";
 
 export interface Post {
   no: number;

@@ -1,7 +1,7 @@
-import ExamplePosts from "@/components/post/ExamplePosts";
-import PostListItem from "@/components/post/PostListItem";
+import ExamplePosts from "@/components/community/post/ExamplePosts";
+import PostListItem from "@/components/community/post/PostListItem";
 import React from "react";
-import {Post} from "@/components/post/PostItem";
+import {Post} from "@/components/community/post/PostItem";
 
 interface PostListProps {
   posts: Post[];

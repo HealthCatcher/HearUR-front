@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Post } from "@/components/post/PostItem";
+import { Post } from "@/components/community/post/PostItem";
 import React from "react";
 
 interface PostListItemProps {
@@ -7,7 +7,7 @@ interface PostListItemProps {
 }
 
 const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
-  console.log(post);
+  //console.log(post);
   return (
     <Link href={`/community/post/${post.no}`}>
       <div className="post-item border-b-2 border-gray-200 p-2">
