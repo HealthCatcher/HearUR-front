@@ -10,7 +10,7 @@ const getPostListRequest = async () => {
         }
       })
       .catch(error => {
-        console.error('Error: ', error);
+        console.error('getPostListRequestError: ', error);
         return [];
       });
 }

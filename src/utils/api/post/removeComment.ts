@@ -17,7 +17,7 @@ const removeComment = async (commentNo: string) => {
       throw new Error("댓글을 삭제하는데 문제가 생겼습니다.");
     }
   }).catch(error => {
-    console.error('Error: ', error);
+    console.error('removeCommentApiError: ', error);
     return -1;
   });
 }

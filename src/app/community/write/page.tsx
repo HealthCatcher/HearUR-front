@@ -1,4 +1,4 @@
-import WritePost from "@/components/post/WritePost";
+import WritePost from "@/components/community/post/WritePost";
 
 export const metadata = {
   title: "HearUR | 글쓰기",

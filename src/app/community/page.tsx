@@ -1,6 +1,6 @@
 import Link from "next/link";
 import getPostListRequest from "@/utils/api/post/getPostListRequest";
-import PostList from "@/components/post/PostList";
+import PostList from "@/components/community/post/PostList";
 
 export const metadata = {
   title: "HearUR | 커뮤니티",

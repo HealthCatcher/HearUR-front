@@ -13,7 +13,7 @@ export const removeLike = async (postNo: number) => {
       throw new Error("좋아요를 삭제하는데 문제가 생겼습니다.");
     }
   }).catch(error => {
-    console.error('Error: ', error);
+    console.error('removeLikeApiError: ', error);
     return -1;
   });
 }
