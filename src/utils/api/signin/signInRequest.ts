@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 export const SignInRequest = async (username: string, password: string) => {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
   try {
-    const response = await axios.post("http://localhost:8080/login", {
+    const response = await axios.post(`${baseUrl}/login`, {
       username: username,
       password: password,
     }, {

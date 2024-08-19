@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const getPostListRequest = async () => {
-  return axios.get('http://localhost:8080/api/v1/community/post')
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  return axios.get(`${baseUrl}/api/v1/community/post`)
       .then(response => {
         if (response.status === 200) {
           return response.data;

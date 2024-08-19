@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const newPassword = async (password: string) => {
-  return axios.post('http://localhost:8080/api/v1/user/new/password', {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  return axios.post(`${baseUrl}/api/v1/user/new/password`, {
     password: password,
   }, {
     headers: {

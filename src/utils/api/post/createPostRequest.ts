@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const createPostRequest = async (title: string, content: string, category: string) => {
-  const response = await axios.post('http://localhost:8080/api/v1/community/post', {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const response = await axios.post(`${baseUrl}/api/v1/community/post`, {
         title: title,
         content: content,
         category: category,

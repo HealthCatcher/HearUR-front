@@ -5,7 +5,8 @@ const retrieveJwt = async (): Promise<string | null> => {
       return jwt;
     } else {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/auth/jwt', {
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+        const response = await fetch(`${baseUrl}/api/v1/auth/jwt`, {
           credentials: 'include',
         });
         const newJwt = response.headers.get('authorization');

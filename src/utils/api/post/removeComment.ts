@@ -5,7 +5,8 @@ const removeComment = async (commentNo: string) => {
     alert('로그인이 필요한 기능입니다.');
     return
   }
-  return axios.delete(`http://localhost:8080/api/v1/community/comment/${commentNo}`, {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  return axios.delete(`${baseUrl}/api/v1/community/comment/${commentNo}`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `${localStorage.getItem('jwt')}`,

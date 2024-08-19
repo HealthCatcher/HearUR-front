@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 export const removeLike = async (postNo: number) => {
-  return axios.delete(`http://localhost:8080/api/v1/community/post/${postNo}/like`, {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  return axios.delete(`${baseUrl}/api/v1/community/post/${postNo}/like`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `${localStorage.getItem('jwt')}`,
