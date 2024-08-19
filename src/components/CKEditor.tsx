@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const Editor = ({ data, onChange }) => {
+const Editor = () => {
   const editorRef = useRef();
-
+  /*
   return (
     <div>
       <CKEditor
@@ -27,6 +27,7 @@ const Editor = ({ data, onChange }) => {
       />
     </div>
   );
+   */
 };
 
 export default Editor;
